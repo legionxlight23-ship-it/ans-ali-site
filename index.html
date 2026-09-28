@@ -330,13 +330,14 @@ body.pf-light .h2{text-shadow:none}
 @keyframes scanX{from{left:-30%}to{left:110%}}
 @media (prefers-reduced-motion:reduce){.nav.intro,.nav.intro>*,.nav-glow.run{animation:none!important}}
 /* CINEMA SCREEN: crop Drive's buttons, hide its controls once playing */
-.cz-film iframe{transform:scale(1.14);transform-origin:50% 50%}
-.cz-shield{position:absolute;inset:0;z-index:2;display:none;cursor:none}
-.cz-film.locked .cz-shield{display:block}
-.player iframe{transform:scale(1.1);transform-origin:50% 50%}
-.player{overflow:hidden}
 .pcover .pfront{clip-path:polygon(60.78% 14.26%,59.01% 11.76%,56.82% 9.72%,54.22% 8.15%,52.66% 7.78%,49.9% 7.87%,46.82% 9.17%,45.0% 11.02%,43.49% 13.43%,42.19% 16.39%,41.3% 19.44%,40.78% 23.24%,40.68% 28.06%,40.0% 29.72%,39.69% 31.57%,40.05% 37.13%,41.25% 42.13%,41.41% 47.04%,41.2% 47.87%,40.73% 48.61%,40.31% 49.91%,39.17% 51.67%,37.71% 55.46%,36.41% 58.06%,35.1% 59.35%,32.03% 61.57%,26.46% 66.57%,22.19% 69.91%,20.94% 71.2%,20.31% 72.31%,19.32% 75.09%,18.49% 78.98%,17.71% 86.3%,16.56% 91.3%,16.3% 93.61%,16.35% 96.57%,15.78% 101%,71.88% 101%,71.2% 96.85%,71.09% 95.09%,70.31% 90.56%,70.21% 87.41%,69.27% 79.81%,68.39% 75.09%,67.4% 71.85%,65.94% 69.91%,56.77% 62.96%,56.25% 62.13%,55.0% 58.8%,55.0% 58.06%,57.45% 53.06%,59.32% 46.76%,60.21% 42.04%,60.42% 39.07%,61.25% 33.06%,63.07% 25.19%,63.23% 22.04%,62.81% 19.07%,62.4% 17.5%);-webkit-clip-path:polygon(60.78% 14.26%,59.01% 11.76%,56.82% 9.72%,54.22% 8.15%,52.66% 7.78%,49.9% 7.87%,46.82% 9.17%,45.0% 11.02%,43.49% 13.43%,42.19% 16.39%,41.3% 19.44%,40.78% 23.24%,40.68% 28.06%,40.0% 29.72%,39.69% 31.57%,40.05% 37.13%,41.25% 42.13%,41.41% 47.04%,41.2% 47.87%,40.73% 48.61%,40.31% 49.91%,39.17% 51.67%,37.71% 55.46%,36.41% 58.06%,35.1% 59.35%,32.03% 61.57%,26.46% 66.57%,22.19% 69.91%,20.94% 71.2%,20.31% 72.31%,19.32% 75.09%,18.49% 78.98%,17.71% 86.3%,16.56% 91.3%,16.3% 93.61%,16.35% 96.57%,15.78% 101%,71.88% 101%,71.2% 96.85%,71.09% 95.09%,70.31% 90.56%,70.21% 87.41%,69.27% 79.81%,68.39% 75.09%,67.4% 71.85%,65.94% 69.91%,56.77% 62.96%,56.25% 62.13%,55.0% 58.8%,55.0% 58.06%,57.45% 53.06%,59.32% 46.76%,60.21% 42.04%,60.42% 39.07%,61.25% 33.06%,63.07% 25.19%,63.23% 22.04%,62.81% 19.07%,62.4% 17.5%);z-index:2}
 .pword{z-index:1}
+.yt-clean{pointer-events:none;border:0}
+.cz-film .yt-clean{position:absolute;inset:0;width:100%;height:100%}
+.cz-ib.on{background:#fff;color:#111}
+.cz-ib[hidden]{display:none}
+.dmedia .yt-clean{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity 1.2s}
+.dmedia .yt-clean.ready{opacity:1}
 /* LIQUID LENS TRANSITION */
 .lens{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:0;background:rgba(8,5,3,.06)}
 .lens.in{animation:veilIn .42s cubic-bezier(.32,.72,0,1) forwards}
@@ -722,7 +723,7 @@ textarea{min-height:80px;resize:vertical}
   <div class="cz-bar glass" id="czBar">
     <div class="cz-t"><span>Now showing</span><b id="czTitle"></b></div>
     <div class="cz-seg"><button data-s="classic">Classic</button><button data-s="curve">Curve</button></div>
-    <button class="cz-ib" id="czCtl" aria-label="Show player controls" title="Show player controls"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg></button>
+    <button class="cz-ib" id="czCtl" aria-label="Sound" title="Sound on or off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 8.5a5 5 0 0 1 0 7"/></svg></button>
     <button class="cz-ib" id="czFs" aria-label="Full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg></button>
     <button class="cz-ib" id="czExit" aria-label="Leave cinema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
@@ -749,6 +750,10 @@ function upgradeDraft(d){ if (!d || typeof d !== "object") return d; if ((d.v ||
 try { const d = localStorage.getItem("ansali-draft"); if (d) { SITE = upgradeDraft(JSON.parse(d)); IS_DRAFT = true; } } catch (e) {}
 const driveId = v => (String(v || "").match(/^drive:(.+)$/) || [])[1];
 const img = v => { const id = driveId(v); return id ? "https://drive.google.com/thumbnail?id=" + encodeURIComponent(id) + "&sz=w1920" : (v || ""); };
+const ytOf = v => (String(v || "").match(/(?:youtu\.be\/|v=|embed\/|shorts\/|yt:)([\w-]{11})/) || [])[1];
+function cleanEmbed(v){ const yt = ytOf(v); if (yt) return `<iframe class="yt-clean" src="https://www.youtube-nocookie.com/embed/${yt}?autoplay=1&mute=1&controls=0&disablekb=1&fs=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&cc_load_policy=0&loop=1&playlist=${yt}&enablejsapi=1" allow="autoplay; encrypted-media" tabindex="-1"></iframe>`;
+  if (v && !driveId(v)) return `<video class="yt-clean" src="${esc(v)}" autoplay muted playsinline loop></video>`; return ""; }
+function ytCmd(frame, func){ try { frame.contentWindow.postMessage(JSON.stringify({ event:"command", func, args:[] }), "*"); } catch (e) {} }
 function playerHTML(v){
   const id = driveId(v); if (id) return `<iframe src="https://drive.google.com/file/d/${encodeURIComponent(id)}/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
   const yt = (String(v).match(/(?:youtu\.be\/|v=|embed\/|yt:)([\w-]{11})/) || [])[1];
@@ -977,7 +982,12 @@ function toggleDetail(tileEl, w){
   if (sameRow) { const d = $(".detail", el); d.style.animation = "none"; }
   const pi = $(".dmedia img", el); pi && pi.addEventListener("error", () => pi.remove());
   const r = grid.getBoundingClientRect(), t = tileEl.getBoundingClientRect(); $(".notch", el).style.left = (t.left - r.left + t.width / 2) + "px";
-  const m = $(".dmedia", el); const v = autoVideo(vidSrcs(w), vv => vv.play().catch(() => {})); m.appendChild(v);
+  const m = $(".dmedia", el); let v;
+  if (ytOf(w.play)) { m.insertAdjacentHTML("beforeend", cleanEmbed(w.play)); v = $(".yt-clean", m); setTimeout(() => v.classList.add("ready"), 1400);
+    v.pause = () => ytCmd(v, "pauseVideo"); v.play = () => { ytCmd(v, "playVideo"); return Promise.resolve(); }; let muted = true, paused = false;
+    Object.defineProperty(v, "muted", { get:() => muted, set:x => { muted = x; ytCmd(v, x ? "mute" : "unMute"); } });
+    Object.defineProperty(v, "paused", { get:() => paused }); const pl = v.play, pa = v.pause; v.play = () => { paused = false; return pl(); }; v.pause = () => { paused = true; pa(); }; }
+  else { v = autoVideo(vidSrcs(w), vv => vv.play().catch(() => {})); m.appendChild(v); }
   const pp = $("[data-pp]", el), snd = $("[data-snd]", el);
   pp.onclick = () => { if (!v.isConnected) return; if (v.paused) { v.play(); pp.innerHTML = IC.pause; pp.setAttribute("aria-label","Pause"); } else { v.pause(); pp.innerHTML = IC.play; pp.setAttribute("aria-label","Play"); } };
   snd.onclick = () => { if (!v.isConnected) return; v.muted = !v.muted; snd.innerHTML = v.muted ? IC.mute : IC.sound; snd.setAttribute("aria-label", v.muted ? "Turn sound on" : "Mute"); };
@@ -1103,14 +1113,14 @@ function layoutScreen(){
   $$(".scr").forEach(b => b.classList.toggle("on", b.dataset.scr === czScreen));
 }
 function fitWorld(){ const k = Math.max(innerWidth / 1672, innerHeight / 941); $("#czWorld").style.transform = `translate(-50%,-50%) scale(${k})`; }
-function filmHTML(w){ const h = playerHTML(w.play); if (h) return h + '<div class="cz-shield" aria-hidden="true"></div>'; const p = img(w.poster); return p ? `<img src="${esc(p)}" alt="" referrerpolicy="no-referrer">` : ""; }
+function filmHTML(w){ const c = cleanEmbed(w.play); if (c) return c; const h = playerHTML(w.play); if (h) return h; const p = img(w.poster); return p ? `<img src="${esc(p)}" alt="" referrerpolicy="no-referrer">` : ""; }
 let idleT = null;
 function wake(){ const c = $("#cinema"); c.classList.remove("idle"); clearTimeout(idleT); idleT = setTimeout(() => c.classList.add("idle"), 3200); }
 function enterCinema(w){
   czWork = w || czWork || libWorks()[0]; if (!czWork) return;
   closeDetail(true); playHero(false); playBill(false);
   const c = $("#cinema"); layoutScreen(); fitWorld();
-  $("#czTitle").textContent = czWork.title; $("#czFilm").classList.remove("locked"); $("#czFilm").innerHTML = filmHTML(czWork);
+  $("#czTitle").textContent = czWork.title; $("#czCtl").classList.remove("on"); $("#czCtl").hidden = !cleanEmbed(czWork.play); $("#czFilm").innerHTML = filmHTML(czWork);
   c.classList.remove("on","run","intro","dark"); void c.offsetWidth; clearTimeout(introT);
   c.style.setProperty("--lit", CZ.lights === "dark" ? ".6" : "1"); if (CZ.lights === "dark") c.classList.add("dark");
   c.classList.add("on"); c.setAttribute("aria-hidden","false");
@@ -1118,10 +1128,6 @@ function enterCinema(w){
   else c.classList.add("run");
   document.documentElement.style.overflow = "hidden"; wake();
 }
-let ctlT = null;
-addEventListener("blur", () => { const f = $("#czFilm"); if (!$("#cinema").classList.contains("on") || !f) return;
-  setTimeout(() => { if (document.activeElement && document.activeElement.tagName === "IFRAME" && f.contains(document.activeElement)) { clearTimeout(ctlT); ctlT = setTimeout(() => { f.classList.add("locked"); window.focus(); }, 900); } }, 50); });
-function showControls(){ const f = $("#czFilm"); f.classList.remove("locked"); clearTimeout(ctlT); ctlT = setTimeout(() => f.classList.add("locked"), 7000); }
 function leaveCinema(){ const c = $("#cinema"); if (!c.classList.contains("on")) return;
   if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
   clearTimeout(introT); c.classList.remove("on","idle","run","intro","dark"); c.setAttribute("aria-hidden","true"); $("#czFilm").innerHTML = ""; document.documentElement.style.overflow = "";
@@ -1132,7 +1138,7 @@ function switchScreen(k){ if (k === czScreen) return; czScreen = k; const W = $(
 $$(".cz-seg button").forEach(b => b.addEventListener("click", () => switchScreen(b.dataset.s)));
 $$(".scr").forEach(b => b.addEventListener("click", () => switchScreen(b.dataset.scr)));
 $("#czExit").addEventListener("click", leaveCinema);
-$("#czCtl").addEventListener("click", showControls);
+$("#czCtl").addEventListener("click", () => { const f = $("#czFilm .yt-clean"); if (!f) return; const on = $("#czCtl").classList.toggle("on"); if (f.tagName === "VIDEO") f.muted = !on; else ytCmd(f, on ? "unMute" : "mute"); });
 $("#czFs").addEventListener("click", () => { const c = $("#cinema"); document.fullscreenElement ? document.exitFullscreen() : (c.requestFullscreen || c.webkitRequestFullscreen || (() => {})).call(c); });
 $("#czEnter").addEventListener("click", () => enterCinema(czWork));
 $("#cinema").addEventListener("mousemove", wake); $("#cinema").addEventListener("touchstart", wake, { passive:true });
@@ -1334,7 +1340,7 @@ function studioPanel(){
       <div class="two"><div class="fld"><label for="fC">Category</label><select id="fC">${SITE.categories.map(c => `<option ${w && w.category === c ? "selected" : ""}>${esc(c)}</option>`).join("")}</select></div>
         <div class="fld"><label for="fPos">Position</label><input class="inp" id="fPos" type="number" min="1" max="${SITE.works.length + 1}" value="${w ? SITE.works.indexOf(w) + 1 : 1}"></div></div>
       <div class="fld"><label>Cover image</label>${dzHTML("film", pend.film || (w && w.poster), "Film cover")}<input class="inp" id="fI" placeholder="or paste a Google Drive or image link" value="${esc(w && !String(w.poster || "").startsWith("data:") ? w.poster || "" : "")}"></div>
-      <div class="fld"><label for="fP">Full film link (Google Drive or YouTube)</label><input class="inp" id="fP" value="${esc(w ? w.play || "" : "")}"></div>
+      <div class="fld"><label for="fP">Full film link <span class="hint">A YouTube link plays automatically with no controls. Drive links use the Drive player.</span></label><input class="inp" id="fP" value="${esc(w ? w.play || "" : "")}"></div>
       <div class="fld"><label for="fV">Intro clip link (optional)</label><input class="inp" id="fV" value="${esc(w ? w.intro || w.preview || "" : "")}"></div>
       <div class="fld"><label for="fD">Description</label><textarea id="fD">${esc(w ? w.description || "" : "")}</textarea></div>
       <div class="row"><button class="pbtn" id="saveW">${w ? "Save changes" : "Add film"}</button>${w ? `<button class="gbtn" id="cancelW">Cancel</button>` : ""}</div></div>
