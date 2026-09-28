@@ -309,13 +309,7 @@ window.SITE = {
   },
   "home": [
     "until",
-    "drawing",
-    "poppy",
-    "letter",
-    "vanishing",
-    "sloane",
-    "dove",
-    "will"
+    "drawing"
   ],
-  "v": 2
+  "v": 3
 };
